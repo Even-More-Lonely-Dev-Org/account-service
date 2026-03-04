@@ -10,17 +10,17 @@ spring:
     problemdetails:
       enabled: true
 
-  datasource:
-    url: jdbc:postgresql://${DATA}
+datasource:
+    url: jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_DB}
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
-  flyway:
-    baseline-on-migrate: true
-    schemas: account
+flyway:
+  baseline-on-migrate: true
+  schemas: accounts
 
-  jpa:
-    properties:
-      hibernate:
-        default_schema: account
+jpa:
+  properties:
+    hibernate:
+      default_schema: accounts
