@@ -2,6 +2,7 @@ package store.account;
 
 import java.util.List;
 
+import insper.store.account.AccountIn;
 import insper.store.account.AccountOut;
 
 public class AccountParser {
@@ -18,4 +19,13 @@ public class AccountParser {
     public static List<AccountOut> to(List<Account> in) {
         return in.stream().map(AccountParser::to).toList();
     }
+
+    public static Account to(AccountIn in){
+        return in == null ? null:
+            Account.builder()
+                .name(in.name())
+                .email(in.email())
+                .password(in.password())
+                .build();
+    }   
 }

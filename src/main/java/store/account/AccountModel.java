@@ -18,8 +18,8 @@ import lombok.experimental.Accessors;
 public class AccountModel {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id")
     private String id;
 
     @Column(name = "name")
@@ -28,10 +28,14 @@ public class AccountModel {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "password_sha256")
+    private String passwordSha256;
+
     public AccountModel(Account a) {
         this.id = a.id();
         this.name = a.name();
         this.email = a.email();
+        this.passwordSha256 = a.passwordSha256();
     }
 
     public Account to() {
@@ -39,6 +43,7 @@ public class AccountModel {
             .id(this.id)
             .name(this.name)
             .email(this.email)
+            .passwordSha256(this.passwordSha256)
             .build();
     }
 
