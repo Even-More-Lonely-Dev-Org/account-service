@@ -1,12 +1,15 @@
 package store.account;
 
-import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import insper.store.account.AccountController;
+import insper.store.account.AccountIn;
+import insper.store.account.AccountOut;
 
 @RestController
 public class AccountResource implements AccountController {
