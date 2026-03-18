@@ -62,4 +62,15 @@ public class AccountResource implements AccountController {
             );
     }
 
+    @Override
+    public ResponseEntity<AccountOut> findByEmailAndPassword(AccountIn in) {
+        final Account out = accountService.findByEmailAndPassword(
+            in.email(),
+            in.password()
+        );
+        return out == null ?
+            ResponseEntity.notFound().build() :
+            ResponseEntity.ok(AccountParser.to(out));
+    }
+
 }

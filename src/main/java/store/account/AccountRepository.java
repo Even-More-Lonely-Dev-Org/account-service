@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccountRepository extends CrudRepository<AccountModel, String> {
 
-    AccountModel findByEmail(String email);
-    Optional<AccountModel> findByEmailAndSha256(String email, String sha256);
+    public Optional<AccountModel> findByEmailAndPasswordSha256(String email, String sha256);
 
 }
